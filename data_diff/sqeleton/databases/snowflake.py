@@ -119,7 +119,7 @@ class Snowflake(Database):
                     raise ConnectError("Cannot use password and key at the same time")
                 p_key = serialization.load_pem_private_key(
                     key.read(),
-                    password=None,
+                    password=kw["key_password"].encode(),
                     backend=default_backend(),
                 )
 
